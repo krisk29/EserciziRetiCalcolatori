@@ -16,6 +16,7 @@ public class ServerSemplice {
             Socket socket = serverSocket.accept();
 
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
             boolean continua = true;
             while(continua){
@@ -24,9 +25,13 @@ public class ServerSemplice {
                     continua = false;
                 }
                 System.out.println("Messaggio: "+line);
+                out.println("Ho ricevuto il tuo messaggio, era: "+line);
             }
-            System.out.println("Server chiuso.");
+            in.close();
+            out.close();
+            socket.close();
             serverSocket.close();
+            System.out.println("Server chiuso.");
         }
         catch (IOException e) {
             System.out.println(e);

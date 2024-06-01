@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-public class ClientSemplice {
+public class ClientConThread {
 
     public static void main(String[] args) {
 
@@ -16,10 +16,15 @@ public class ClientSemplice {
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            out.println("Testo 1");
+           /* out.println("Testo 1");
             out.println("Testo 2");
             out.println("Testo 3");
-            out.println("exit");
+           */
+            for(int i=0; i<100000; i++){
+                out.println("Testo numero: "+i);
+            }
+
+            //out.println("exit");
 
             boolean continua = true;
             while(continua){
