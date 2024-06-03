@@ -1,8 +1,9 @@
 package eserciziUno.esercitazione10;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class ProdottiService {
+public class ProdottiService implements Serializable {
 
     private HashMap<String,HashMap<Prodotto,Integer>> venditeMagazzino; //idMagazzino - <Prodotto,vendita>
 
