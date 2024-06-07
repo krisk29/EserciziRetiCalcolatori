@@ -1,6 +1,8 @@
 package eserciziDue.garaAppalti;
 
-public class Richiesta {
+import java.io.Serializable;
+
+public class Richiesta implements Serializable {
 
     private String descrizione;
     private int importoMassimo;
